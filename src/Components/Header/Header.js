@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaLaptopCode, FaMoon, FaRegHandPointLeft, FaSun, FaUserGraduate } from 'react-icons/fa';
 import './Header.css'
+import { AuthContext } from '../../Context/ContextProvider';
+import { toast } from 'react-hot-toast';
 
 const Header = () => {
   const [darkmode, setDarkmode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [stickyNav, setStickyNav] = useState(false);
+
+  const { user, logOut } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleStickyNav = () => {
     if (window.scrollY >= 300) {
@@ -16,6 +21,15 @@ const Header = () => {
     }
   }
   window.addEventListener('scroll', handleStickyNav)
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success('Ready to welcome again.')
+        navigate('/login')
+      })
+      .then(error =>console.error(error) )
+  }
 
   return (
     <div className="sm:max-w-full md:max-w-full lg:w-full">
@@ -90,7 +104,7 @@ const Header = () => {
         </div>
 
         {/* the sign in and signOut toggle starts */}
-        {/* {
+        {
           user?.email ?
             <div className="sm:flex items-center hidden space-x-8 lg:flex lg:justify-center ">
               <div>
@@ -133,7 +147,7 @@ const Header = () => {
              <FaRegHandPointLeft/>
             </div>
             </NavLink>
-        } */}
+        }
         {/* {
         user.photURL? <img src={user.photoURL} alt="" />:
         <img src={profilepic} alt="" className='border bottom-3' />
