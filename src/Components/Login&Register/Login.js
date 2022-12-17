@@ -6,7 +6,7 @@ import { AuthContext } from '../../Context/ContextProvider';
 
 const Login = () => {
   const [givenEmail, setGivenEmail] = useState('')
-  const { signIn, forgetPassword, singInWithGoogle } = useContext(AuthContext);
+  const { signIn, forgetPassword, singInWithGoogle,signInWithGithub } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleOnSubmit = (e) => {
@@ -19,7 +19,6 @@ const Login = () => {
     signIn(email, password)
       .then(res => {
         const user = res.user;
-        console.log(user)
         navigate('/home')
         toast.success('welcome to eLearning platform')
       })
@@ -37,9 +36,16 @@ const Login = () => {
     singInWithGoogle()
       .then(result => {
         const user = result.user;
-        console.log(user);
+        toast.success('login successful')
       })
       .catch(err => console.error(err))
+  }
+
+  const handleGithubSignIn =()=>{
+    signInWithGithub()
+    .then(result=>{ const user=result.user; 
+  toast.succer('login succesful')})
+  .then(err=>{toast.error({err})})
   }
 
 
@@ -98,7 +104,7 @@ const Login = () => {
           <div className="divider mt-1 text-sm font-semibold">OR LOGIN With</div>
           <div className='flex justify-center p-5 items-center gap-5 text-orange-400'>
             <div onClick={handleGoogleSignUp} className='cursor-pointer'><FaGoogle className='text-4xl hover:text-orange-600' /> </div>
-            <div><FaGithub className='text-4xl' /></div>
+            <div onClick={handleGithubSignIn}><FaGithub className='text-4xl' /></div>
             <div><FaTwitter className='text-4xl' /></div>
           </div>
         </div>

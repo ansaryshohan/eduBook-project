@@ -25,7 +25,7 @@ const Header = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        toast.success('Ready to welcome again.')
+        toast.success('logOut successful')
         navigate('/login')
       })
       .then(error =>console.error(error) )
