@@ -1,13 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../Components/Blog/Blog";
+import Checkout from "../Components/checkout/Checkout";
 import GroupCourses from "../Components/CoursesComponent/GroupCourses/GroupCourses";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Home from "../Components/Home/Home/Home";
 import Login from "../Components/Login&Register/Login";
 import Register from "../Components/Login&Register/Register";
+import Profile from "../Components/Profile/Profile";
 import SingleCourseDetails from "../Components/SingleCourse/SingleCourseDetails";
 import CoursesLayout from "../Layouts/CoursesLayout";
 import Main from "../Layouts/Main";
+import PrivateRoute from "./PrivateRouter";
 
 export const router = createBrowserRouter([
   {
@@ -51,7 +54,16 @@ export const router = createBrowserRouter([
         path: '/course/:id',
         loader: ({ params }) => fetch(`https://e-learnign-server.vercel.app/course/${params.id}`),
         element: <SingleCourseDetails></SingleCourseDetails>,
-      }
+      },
+      {
+        path: 'checkout/course/:id',
+        loader: ({ params }) => fetch(`https://e-learnign-server.vercel.app/course/${params.id}`),
+        element: <Checkout></Checkout>
+      },
+    {
+      path: '/profile',
+      element: <PrivateRoute><Profile></Profile></PrivateRoute>,
+    }
     ]
   }
 ])

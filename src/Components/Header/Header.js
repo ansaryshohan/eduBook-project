@@ -119,7 +119,8 @@ const Header = () => {
                
               </div>
               <div>
-              {
+             <Link to='/profile'>
+             {
                   user?.photoURL ?
                     <div className="avatar">
                       <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 grid place-items-center tooltip tooltip-open tooltip-warning" title={user.displayName}>
@@ -129,6 +130,7 @@ const Header = () => {
                   :
                     <FaUserGraduate />
                 }
+             </Link>
               </div>
             </div>
             :
