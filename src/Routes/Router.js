@@ -3,6 +3,8 @@ import Blog from "../Components/Blog/Blog";
 import GroupCourses from "../Components/CoursesComponent/GroupCourses/GroupCourses";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Home from "../Components/Home/Home/Home";
+import Login from "../Components/Login&Register/Login";
+import Register from "../Components/Login&Register/Register";
 import SingleCourseDetails from "../Components/SingleCourse/SingleCourseDetails";
 import CoursesLayout from "../Layouts/CoursesLayout";
 import Main from "../Layouts/Main";
@@ -24,6 +26,14 @@ export const router = createBrowserRouter([
       {
         path: '/blog',
         element: <Blog></Blog>
+      },
+      {
+        path: '/login',
+        element: <Login></Login>,
+      },
+      {
+        path: '/register',
+        element: <Register></Register>,
       },
       {
         path: '/courses',
