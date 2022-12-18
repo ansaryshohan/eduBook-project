@@ -45,10 +45,12 @@ const ContextProvider = ({children}) => {
   }
 
   const singInWithGoogle=()=>{
+    setloading(true)
     return signInWithPopup(auth, googleProvider)
   }
 
   const signInWithGithub=()=>{
+    setloading(true)
     return signInWithPopup(auth, githubProvider)
   }
 

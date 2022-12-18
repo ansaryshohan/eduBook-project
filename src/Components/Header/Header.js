@@ -105,7 +105,7 @@ const Header = () => {
 
         {/* the sign in and signOut toggle starts */}
         {
-          user?.email ?
+          user?.email  ?
             <div className="sm:flex items-center hidden space-x-8 lg:flex lg:justify-center ">
               <div>
                 <button          

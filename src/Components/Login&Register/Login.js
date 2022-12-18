@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/ContextProvider';
 
 const Login = () => {
   const [givenEmail, setGivenEmail] = useState('')
-  const { signIn, forgetPassword, singInWithGoogle,signInWithGithub } = useContext(AuthContext);
+  const { signIn, forgetPassword, singInWithGoogle, signInWithGithub } = useContext(AuthContext);
   const navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +22,7 @@ const Login = () => {
     signIn(email, password)
       .then(res => {
         const user = res.user;
-        navigate('/home')
+        navigate(from, { replace: true })
         toast.success('welcome to eLearning platform')
       })
       .catch(
@@ -36,16 +39,21 @@ const Login = () => {
     singInWithGoogle()
       .then(result => {
         const user = result.user;
+        navigate(from, { replace: true })
         toast.success('login successful')
       })
       .catch(err => console.error(err))
   }
 
-  const handleGithubSignIn =()=>{
+  const handleGithubSignIn = () => {
     signInWithGithub()
-    .then(result=>{ const user=result.user; 
-  toast.succer('login succesful')})
-  .then(err=>{toast.error({err})})
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true })
+        toast.success('login successful')
+      })
+      .then(err => { toast.error({ err }) })
   }
 
 
