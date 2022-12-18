@@ -22,6 +22,7 @@ const Login = () => {
     signIn(email, password)
       .then(res => {
         const user = res.user;
+        // console.log(user);
         navigate(from, { replace: true })
         toast.success('welcome to eLearning platform')
       })
@@ -49,7 +50,7 @@ const Login = () => {
     signInWithGithub()
       .then(result => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         navigate(from, { replace: true })
         toast.success('login successful')
       })

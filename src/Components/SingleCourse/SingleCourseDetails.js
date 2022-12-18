@@ -38,7 +38,8 @@ const SingleCourseDetails = () => {
           <p className=' text-2xl font-semibold text-success'>Course Details :</p>
           <hr className='w-40 mb-2' />
           <p className='text-xl mb-8 '>{description}</p>
-{/* what you will learn */}
+            <div className='flex flex-col gap-3'>
+              {/* what you will learn */}
           <div className='border border-slate-200 rounded-md p-6 shadow-md'>
             <h1 className=' text-2xl font-semibold text-success'>What you will learn here :</h1>
             <hr className='w-1/3 mb-2' />
@@ -76,13 +77,14 @@ const SingleCourseDetails = () => {
               <p className="font-medium text-gray-800">To use this information as a platform for you to be empowered into your greater knowing</p>
             </li>
           </div>
+            </div>
         </div>
       </div>
 
 
       {/* sticky card navbar */}
       <div className='lg:col-span-1 h-[520px]'>
-        <div className="card w-4/5 lg:w-96 h-full bg-base-100 shadow-xl mx-auto lg:sticky lg:top-5 static">
+        <div className="card w-4/5 lg:w-96 h-full bg-base-100 shadow-xl mx-auto lg:sticky lg:top-5">
           <figure><img src={image} alt="Shoes" className='h-60 w-full  object-cover' /></figure>
           <div className="card-body pb-3 pt-7 px-7">
             <div className="text-xl font-semibold text-success px-3">

@@ -14,7 +14,7 @@ const CourseSection = () => {
   const threeData= userdata.filter(user=> user.id<4);
 
   return (
-    <div className='relative pb-8 mb-10'>
+    <div className=' pb-8 mb-10'>
 
       <h1 className='text-center mt-12  text-5xl font-bold'>Our Popular Courses</h1>
       <div className="divider mb-20 w-5/12 mx-auto"></div>
@@ -26,7 +26,9 @@ const CourseSection = () => {
       }
      </div>
      <Link to='/courses'>
-     <button className="btn btn-accent  text-2xl font-bold md:absolute md:right-1/4 bottom-0 w-72 mx-28">View ALL COURSES</button>
+    <div className='flex justify-center'>
+    <button className="btn btn-accent text-2xl font-bold  w-72 mx-28">View ALL COURSES</button>
+    </div>
      </Link>
     </div>
   );

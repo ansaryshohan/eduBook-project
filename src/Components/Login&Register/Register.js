@@ -73,6 +73,7 @@ const Register = () => {
     createUserWithEmailPassword(userInfo.email, userInfo.password)
       .then((result) => {
         const user = result.user;
+        // console.log(user);
 
         if (user.uid) {
           // updateing profile name and photourl
