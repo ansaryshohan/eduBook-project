@@ -14,7 +14,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   const handleStickyNav = () => {
-    if (window.scrollY >= 300) {
+    if (window.scrollY >= 200) {
       setStickyNav(true);
     } else {
       setStickyNav(false);

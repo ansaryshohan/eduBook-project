@@ -3,7 +3,7 @@ import '../SectionCssFiles/BannerSection.css'
 
 const BannerSection = () => {
   return (
-       <div  className='w-screen h-screen overflow-x-hidden'>
+       <div  className='w-fit h-screen'>
       <div className='banner flex justify-center items-center flex-col text-center '>
      
       <h1 className='text-6xl lg:text-7xl font-bold text-[#BFD7FF]'> School for 

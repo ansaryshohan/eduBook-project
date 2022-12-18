@@ -21,20 +21,20 @@ const SingleCourseDetails = () => {
   return (
     <div className='lg:grid lg:grid-cols-4 lg:w-9/12 mx-auto mt-4 flex flex-col-reverse '>
 
-      <div className='lg:col-span-3 p-10 relative'>
+      <div className='lg:col-span-3 p-10'>
        
-        <div className="absolute lg:right-5 lg:top-32 top-32 right-5
-        text-xl font-semibold text-accent text-center">
+
+        {/* description section of the page */}
+        <div ref={componentRef} style={{ width: '100%', height: window.innerHeight }}>
+
+          <h1 className=' text-3xl font-semibold text-center mb-16 text-success'>{title}</h1>
+
+        <div className="text-xl font-semibold text-accent text-center flex justify-end">
           <button onClick={handlePrint}  className="shadow-xl text-center bg-orange-500 flex px-4 py-1 rounded-lg items-center gap-1">
             <FaFileDownload className='text-xl text-accent' />Download
           </button>
         </div>
 
-        {/* description section of the page */}
-        <div ref={componentRef} style={{ width: '100%', height: window.innerHeight }}>
-
-
-          <h1 className=' text-3xl font-semibold text-center mb-16 text-success'>{title}</h1>
           <p className=' text-2xl font-semibold text-success'>Course Details :</p>
           <hr className='w-40 mb-2' />
           <p className='text-xl mb-8 '>{description}</p>
