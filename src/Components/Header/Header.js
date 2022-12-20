@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { FaLaptopCode, FaMoon, FaRegHandPointLeft, FaSun, FaUserGraduate } from 'react-icons/fa';
+import { FaLaptopCode, FaMoon, FaRegHandPointLeft, FaSun, FaUser, FaUserGraduate } from 'react-icons/fa';
 import './Header.css'
 import { AuthContext } from '../../Context/ContextProvider';
 import { toast } from 'react-hot-toast';
@@ -134,10 +134,11 @@ const Header = () => {
               </div>
             </div>
             :
-            <NavLink 
+           <div className='flex gap-7 items-center'>
+             <NavLink 
             to="/login"
             className="sm:flex items-center hidden space-x-8 lg:flex lg:justify-center ">
-            <div className='flex justify-evenly items-center gap-2'>
+            <div className='flex justify-evenly items-center gap-1'>
               <button          
               aria-label="Sign In"
                 title="Sign In"
@@ -149,6 +150,13 @@ const Header = () => {
              <FaRegHandPointLeft/>
             </div>
             </NavLink>
+            <Link to="/profile">
+            <div title='profile'>
+              <FaUser/>
+            </div>
+            </Link>
+            
+           </div>
         }
         {/* {
         user.photURL? <img src={user.photoURL} alt="" />:
